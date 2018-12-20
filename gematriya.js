@@ -60,8 +60,8 @@
 		letters[numbers[i]] = i;
 	}
 
-	function gematriya(num, options = {limit: false, punctuate: true, order: false }) {
-		const {limit, punctuate, order} = options;
+	function gematriya(num) {
+
 		if (typeof num !== 'number' && typeof num !== 'string') {
 			throw new TypeError('non-number or string given to gematriya()');
 		}
@@ -70,13 +70,10 @@
 			num = num.replace(/('|")/g,'');
 		}
 		num = num.toString().split('').reverse();
-		if (!str && limit) {
-			num = num.slice(0, limit);
-		}
 
 		num = num.map(function g(n,i){
 			if (str) {
-				return order && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
+				return numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
 			} else {
 				if (parseInt(n, 10) * Math.pow(10, i) > 1000) {
 					return g(n, i-3);
@@ -91,19 +88,10 @@
 			}, 0);
 		} else {
 			num = num.reverse().join('').replace(/יה/g,'טו').replace(/יו/g,'טז').split('');
-		
-			if (punctuate)	{
-				if (num.length === 1) {
-					num.push("'");
-				} else if (num.length > 1) {
-					num.splice(-1, 0, '"');
-				}
-			}
-
 			return num.join('');
 		}
 	}
-
+	
 	if (typeof module !== 'undefined') {
 		module.exports = gematriya;
 	} else {
