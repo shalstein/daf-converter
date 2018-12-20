@@ -1,0 +1,11 @@
+{
+  "name": "daf-converter",
+  "version": "1.0.0",
+  "description": "Convert daf pages to numbers and vice-versa",
+  "main": "gematriya.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sholom Steinmetz",
+  "license": "MIT"
+}
