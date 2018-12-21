@@ -1,8 +1,12 @@
 {
   "name": "daf-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert daf pages to numbers and vice-versa",
   "main": "convertDaf.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/peacestone/daf-converter.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
